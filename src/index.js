@@ -6,14 +6,14 @@ const router = express.Router();
 
 app.use(cors());
 
-router.get('/', (req, res) => {
+app.get('/', (req, res) => {
   res.send(`<h1>Home Page</h1>
   <a href="/about">About Page</a>`);
 });
-router.get('/about', (req, res) => {
+app.get('/about', (req, res) => {
   res.send(`<h1>About Page</h1>
   <a href="/">Home Page</a>`);
 });
 
-app.use('/', router);
+app.use('/', app);
 module.exports.handler = serverless(app);
