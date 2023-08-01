@@ -5,6 +5,7 @@ const serverless = require('serverless-http');
 const router = express.Router();
 
 app.use(cors());
+app.use('/', router);
 
 router.get('/', (req, res) => {
   res.send(`<h1>Home Page</h1>
@@ -15,5 +16,6 @@ router.get('/about', (req, res) => {
   <a href="/">Home Page</a>`);
 });
 
-app.use('/', router);
+app.listen(5000);
+
 module.exports.handler = serverless(app);
